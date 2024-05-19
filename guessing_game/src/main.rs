@@ -1,19 +1,45 @@
+use clap::Parser;
+
+#[derive(Parser)]
+#[clap(version = "1.0", author = "Akif", about = "Guessing game")]
+
+struct Cli {
+    #[clap(subcommand)]
+    command: Option<Commands>,
+}
+
+#[derive(Parser)]
+enum Commands {
+    #[clap(name = "play", about = "Play the game")]
+    Play {
+        #[clap(short, long)]
+        number: Option<u32>,
+    },
+    #[clap(name = "generate", about = "Generate a random number")]
+    Generate,
+}
+
 fn main() {
-    println!("Welcome to the guessing game!");
-    //Please guess a number
-    println!("Please guess a number between 1 and 100");
-    // Create a random number
-    let random_number = guessing_game::create_random_number();
+    let args = Cli::parse();
+    match args.command {
+        Some(Commands::Play { number }) => {
+            let random_number = guessing_game::create_random_number();
+            let guess = number.unwrap_or_else(guessing_game::get_number_from_user);
 
-    // Get number from user
-    let guess = guessing_game::get_number_from_user();
-    println!("Your guess is: {}", guess);
-
-    // Check the guess
-    let result = guessing_game::check_guess(guess, random_number);
-    if result {
-        println!("You win!");
-    } else {
-        println!("You lose!");
+            println!("Your guess is: {}", guess);
+            let result = guessing_game::check_guess(guess, random_number);
+            if result {
+                println!("You win!");
+            } else {
+                println!("You lose!");
+            }
+        }
+        Some(Commands::Generate) => {
+            let random_number = guessing_game::create_random_number();
+            println!("Random number is: {}", random_number);
+        }
+        None => {
+            println!("Please provide a command");
+        }
     }
 }

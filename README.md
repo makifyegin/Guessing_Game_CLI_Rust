@@ -1,18 +1,14 @@
-# rust-new-project-template
-A good starting point for a new Rust project
+# Guessing Game
 
-## Demo actions
+This is a simple command-line guessing game written in Rust.
 
-* A.  Create a Repo with a Template
+## How to Play
 
-* B.  Enabling dot files:  Settings, Codespaces, install
+There are two commands available: `play` and `generate`.
 
-* C. Configure Codespaces and .devcontainer
+### Play Command
 
-* D. Configure and Run Copilot X
+To play the game, use the `play` command followed by your guess. For example:
 
-* E. Configure and Run GitHub Copilot CLI:  https://www.npmjs.com/package/@githubnext/github-copilot-cli
-
-## References
-
-* [rust-cli-template](https://github.com/kbknapp/rust-cli-template)
+```bash
+cargo run -- play --number 50
