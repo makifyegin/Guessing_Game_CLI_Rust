@@ -1,8 +1,6 @@
 use clap::Parser;
 
 //use unit_testing::guessing_game;
-use trust::guessing_game;
-
 
 #[derive(Parser)]
 #[clap(version = "1.0", author = "Akif", about = "Guessing game")]
