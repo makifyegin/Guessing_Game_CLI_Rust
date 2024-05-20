@@ -1,4 +1,4 @@
-[![Tests](https://github.com/makifyegin/Guessing_Game_CLI_Rust/actions/workflows/test.yml/badge.svg)](https://github.com/makifyegin/Guessing_Game_CLI_Rust/actions/workflows/tests.yml)
+[![Tests](https://github.com/makifyegin/Guessing_Game_CLI_Rust/actions/workflows/tests.yml/badge.svg)](https://github.com/makifyegin/Guessing_Game_CLI_Rust/actions/workflows/tests.yml)
 # Guessing Game
 
 This is a simple command-line guessing game written in Rust.
